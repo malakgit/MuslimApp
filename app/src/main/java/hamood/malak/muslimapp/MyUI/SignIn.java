@@ -14,6 +14,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.Hashtable;
+
 import hamood.malak.muslimapp.MainActivity;
 import hamood.malak.muslimapp.MyUtils.MyValidations;
 import hamood.malak.muslimapp.R;
@@ -83,6 +85,7 @@ public class SignIn extends MainActivity {
                 {
                     Toast.makeText(SignIn.this,"FAILED",Toast.LENGTH_SHORT).show();
                     Email.setError(task.getException().getMessage());
+
                 }
             }
         });
