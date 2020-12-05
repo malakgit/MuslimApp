@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/TitlePost"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="278dp"
+        tools:layout_editor_absoluteY="200dp">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/imagebttn"
+                    android:layout_width="match_parent"
+                    android:layout_height="206dp"
+                    app:srcCompat="@drawable/common_full_open_on_phone" />
+
+                <EditText
+                    android:id="@+id/PostTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="62dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="For what this post" />
+
+                <EditText
+                    android:id="@+id/TextMore"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="Tell us more about this post!" />
+
+                <TextView
+                    android:id="@+id/seeklike"
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:text="How much you like it(:" />
+
+                <SeekBar
+                    android:id="@+id/seekBarlike"
+                    style="@style/Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="10"
+                    android:progress="3" />
+
+                <Button
+                    android:id="@+id/Code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CODE" />
+
+                <Button
+                    android:id="@+id/Post"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="POST" />
+
+                <Button
+                    android:id="@+id/Draft"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="DRAFT" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
