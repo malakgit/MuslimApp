@@ -15,7 +15,7 @@ public class MyValidations {
         pattern = Pattern.compile(PASSWORD_PATTERN);
     }
 
-    public boolean validatePasword(final String password) {
+    public boolean validatePassword(final String password) {
 
         matcher = pattern.matcher(password);
         return matcher.matches();

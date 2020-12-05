@@ -14,7 +14,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import hamood.malak.muslimapp.MainActivity;
+
 import hamood.malak.muslimapp.MyUtils.MyValidations;
 import hamood.malak.muslimapp.R;
 
@@ -59,7 +59,7 @@ public class SignIn extends MainActivity {
             Email.setError("wrong Gmail syntax");
         }
         MyValidations myValidations=new MyValidations();
-        if (myValidations.validatePasword(password)==false) {
+        if (!myValidations.validatePassword(password)) {
             isOk = false;
             Password.setError("Invalid Password");
         }
