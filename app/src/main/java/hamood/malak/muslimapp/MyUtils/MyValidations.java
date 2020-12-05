@@ -19,6 +19,7 @@ public class MyValidations {
 
         matcher = pattern.matcher(password);
         return matcher.matches();
+        //
 
     }
 }
