@@ -81,7 +81,7 @@ public class SignUp extends MainActivity {
         else
         {
             MyValidations myValidations=new MyValidations();
-            if (myValidations.validatePasword(password)==false){
+            if (myValidations.validatePassword(password)==false){
                 isOk= false;
                 password1.setError("Invalid Password");
             }

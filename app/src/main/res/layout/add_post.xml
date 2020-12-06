@@ -66,16 +66,16 @@
                     android:text="CODE" />
 
                 <Button
-                    android:id="@+id/Post"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="POST" />
-
-                <Button
                     android:id="@+id/Draft"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="DRAFT" />
+
+                <Button
+                    android:id="@+id/Post"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="POST" />
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>

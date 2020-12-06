@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "375416127459",
+    "firebase_url": "https://muslimapp-bc76f.firebaseio.com",
+    "project_id": "muslimapp-bc76f",
+    "storage_bucket": "muslimapp-bc76f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375416127459:android:ef2566e728f85d7cdaead6",
+        "android_client_info": {
+          "package_name": "hamood.malak.muslimapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "375416127459-nuddc6jandh2fr7o7lh04pgfbpcaj0b1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "hamood.malak.muslimapp",
+            "certificate_hash": "a9f8fb98270997b5156bfdd19b20d6e88b12a630"
+          }
+        },
+        {
+          "client_id": "375416127459-1ng3ld9mblptjlaiu75utr332gfvh05u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0hw-jRLmkstMi0Xn2K868X_8OLlR_dsU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "375416127459-1ng3ld9mblptjlaiu75utr332gfvh05u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
