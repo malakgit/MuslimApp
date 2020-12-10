@@ -49,7 +49,7 @@
                     android:id="@+id/seeklike"
                     android:layout_width="match_parent"
                     android:layout_height="34dp"
-                    android:text="How much you like it(:" />
+                    android:text="How much do you like it(:" />
 
                 <SeekBar
                     android:id="@+id/seekBarlike"
