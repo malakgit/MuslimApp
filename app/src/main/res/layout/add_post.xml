@@ -34,22 +34,22 @@
                     android:layout_width="match_parent"
                     android:layout_height="62dp"
                     android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="For what this post" />
+                    android:hint="For what this post"
+                    android:inputType="textPersonName" />
 
                 <EditText
                     android:id="@+id/TextMore"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="Tell us more about this post!" />
+                    android:hint="Tell us more about this post!"
+                    android:inputType="textPersonName" />
 
                 <TextView
                     android:id="@+id/seeklike"
                     android:layout_width="match_parent"
                     android:layout_height="34dp"
-                    android:text="How much do you like it(:" />
+                    android:text="textmoe" />
 
                 <SeekBar
                     android:id="@+id/seekBarlike"

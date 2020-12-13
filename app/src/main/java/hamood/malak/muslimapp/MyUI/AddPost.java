@@ -46,7 +46,7 @@ public class AddPost extends AppCompatActivity {
     public void validationForm()
     {
         String Forwhatthispost= PostTitle.getText().toString();
-        String Tellusaboutthispost= TextMore.getText().toString();
+        String textmoe= TextMore.getText().toString();
         int like=seekBarlike.getProgress();
         boolean isOk=false;
         if (Forwhatthispost.length()==0){
