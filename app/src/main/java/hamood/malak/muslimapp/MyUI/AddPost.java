@@ -16,7 +16,7 @@ import hamood.malak.muslimapp.MyUtils.MyValidations;
 import hamood.malak.muslimapp.R;
 
 public class AddPost extends AppCompatActivity {
-    private Button Post,Draft,Code;
+    private Button Post,Draft,Code,uploadbtn;
     private ImageButton imagebttn;
     private TextView PostTitle,TextMore;
     private SeekBar seekBarlike;
@@ -28,6 +28,7 @@ public class AddPost extends AppCompatActivity {
         super.onCreate(savedByInstanceState);
         setContentView(R.layout.add_post);
         //find view by id
+        uploadbtn=findViewById(R.id.uploadbtn);
         Draft=findViewById(R.id.Draft);
         imagebttn=findViewById(R.id.imagebttn);
         Code=findViewById(R.id.Code);

@@ -29,6 +29,12 @@
                     android:layout_height="206dp"
                     app:srcCompat="@drawable/common_full_open_on_phone" />
 
+                <Button
+                    android:id="@+id/uploadbtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Upload" />
+
                 <EditText
                     android:id="@+id/PostTitle"
                     android:layout_width="match_parent"
