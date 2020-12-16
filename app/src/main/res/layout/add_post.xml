@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/TitlePost"
+    android:id="@+id/choose_image_btn"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -26,7 +26,7 @@
                 <ImageButton
                     android:id="@+id/imagebttn"
                     android:layout_width="match_parent"
-                    android:layout_height="206dp"
+                    android:layout_height="217dp"
                     app:srcCompat="@drawable/common_full_open_on_phone" />
 
                 <Button
@@ -82,6 +82,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="POST" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="74dp"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+                <Button
+                    android:id="@+id/chooseimage_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="choose image" />
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
