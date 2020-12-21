@@ -17,6 +17,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MyUI.SignIn"/>
+        <activity android:name=".MyUI.AddPost"/>
+        <activity android:name=".MyUI.SignUp"/>
+
     </application>
 
 </manifest>
