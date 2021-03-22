@@ -17,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="email"
             android:inputType="textEmailAddress" />
 
         <EditText
@@ -24,6 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="your number"
             android:inputType="number" />
 
         <EditText
@@ -31,24 +33,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="password"
+            android:inputType="textPassword" />
+        <EditText
+            android:id="@+id/password2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint=" rewrite password"
             android:inputType="textPassword" />
 
-        <TextView
+        <EditText
             android:id="@+id/firstname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:hint="First Name" />
 
-        <TextView
+        <EditText
             android:id="@+id/lastname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:hint="Last Name" />
 
         <Button
             android:id="@+id/save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="save" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

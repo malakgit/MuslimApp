@@ -22,7 +22,7 @@ public class SignUp extends MainActivity {
     //1 XML design
     //2
     private EditText editTextTextEmailAddress,text,editPhone;
-    private TextView password1,firstname,lastname;
+    private EditText password1,password2,firstname,lastname;
     private Button save;
     protected void onCreate(Bundle saveInstanceState){
         super.onCreate(saveInstanceState);
@@ -32,13 +32,15 @@ public class SignUp extends MainActivity {
         text=findViewById(R.id.text);
         editPhone=findViewById(R.id.editPhone);
         password1=findViewById(R.id.password1);
+        password2=findViewById(R.id.password2);
+
         firstname=findViewById(R.id.firstname);
         lastname=findViewById(R.id.lastname);
         save=findViewById(R.id.save);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {//class without name
-
+                    checkForm();
 
             }
         });
@@ -51,7 +53,9 @@ public class SignUp extends MainActivity {
     {
         String phone=editPhone.getText().toString();
         String Gmail=editTextTextEmailAddress.getText().toString();
-        String password=password1.getText().toString();
+        String stpassword1=password1.getText().toString();
+        String stpassword2=password2.getText().toString();
+
         String FirstName=firstname.getText().toString();
         String LastName=lastname.getText().toString();
 
@@ -74,22 +78,22 @@ public class SignUp extends MainActivity {
             isOk=false;
             editTextTextEmailAddress.setError("wrong Gmail syntax");
         }
-        if(password.equals(password1)==false){
+        if(stpassword1.equals(stpassword2)==false){
             isOk=false;
             password1.setError("Password must ne the same");
         }
         else
         {
-            MyValidations myValidations=new MyValidations();
-            if (myValidations.validatePassword(password)==false){
-                isOk= false;
-                password1.setError("Invalid Password");
-            }
+//            MyValidations myValidations=new MyValidations();
+//            if (myValidations.validatePassword(password)==false){
+//                isOk= false;
+//                password1.setError("Invalid Password");
+//            }
         }
         if(isOk)// isOk = true
         {
             // todo: create account and return to sign in screen/ close this screen
-            createNewAccount(Gmail,FirstName,LastName,password,phone);
+            createNewAccount(Gmail,FirstName,LastName,stpassword1,phone);
         }
 
     }

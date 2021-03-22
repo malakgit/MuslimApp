@@ -23,7 +23,7 @@ public class SignIn extends MainActivity {
     private EditText Password,Email;
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sign_up); //3
+        setContentView(R.layout.sign_in); //3
 
         Email=findViewById(R.id.email);
         Password=findViewById(R.id.password);
