@@ -44,6 +44,7 @@ public class AddPost extends AppCompatActivity {
         TextMore=findViewById(R.id.TextMore);
         seekBarlike=findViewById(R.id.seekBarlike);
         seeklike=findViewById(R.id.seeklike);
+        Post=findViewById(R.id.Post);
         //listeners
                 Post.setOnClickListener(new View.OnClickListener() {
         @Override
