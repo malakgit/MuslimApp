@@ -58,11 +58,11 @@ public class SignIn extends MainActivity {
             isOk=false;
             Email.setError("wrong Gmail syntax");
         }
-        MyValidations myValidations=new MyValidations();
-        if (!myValidations.validatePassword(password)) {
-            isOk = false;
-            Password.setError("Invalid Password");
-        }
+//        MyValidations myValidations=new MyValidations();
+//        if (!myValidations.validatePassword(password)) {
+//            isOk = false;
+//            Password.setError("Invalid Password");
+//        }
         if ((isOk)){
             signIn(email,password);
         }

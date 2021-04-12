@@ -49,7 +49,7 @@ public class AddPost extends AppCompatActivity {
                 Post.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            new MyValidations();
+           validationForm();
         }
     });
 }
