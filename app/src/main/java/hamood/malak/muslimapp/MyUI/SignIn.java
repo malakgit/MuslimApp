@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -18,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import hamood.malak.muslimapp.MyUtils.MyValidations;
 import hamood.malak.muslimapp.R;
 
-public class SignIn extends MainActivity {
+public class SignIn extends AppCompatActivity {
     private Button logIn,signUP;
     private EditText Password,Email;
     protected void onCreate(Bundle savedInstanceState){
@@ -76,7 +77,7 @@ public class SignIn extends MainActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
-                    Intent i=new Intent(SignIn.this,MainActivity.class);
+                    Intent i=new Intent(SignIn.this,OwnerMainActivity.class);
                     startActivity(i);
                 }
                 else

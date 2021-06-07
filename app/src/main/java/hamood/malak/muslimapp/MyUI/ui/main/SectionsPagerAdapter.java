@@ -17,6 +17,9 @@ import hamood.malak.muslimapp.R;
  */
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
+    AllPostsFragment allPostsFragment;
+    MyPostFragment myPostFragment;
+
     @StringRes
     private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2};
     private final Context mContext;
@@ -28,9 +31,17 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        // getItem is called to instantiate the fragment for the given page.
-        // Return a PlaceholderFragment (defined as a static inner class below).
-        return PlaceholderFragment.newInstance(position + 1);
+        if (position==0){
+            if (allPostsFragment==null)
+                allPostsFragment=new AllPostsFragment();
+            return allPostsFragment;
+        }
+        if (position==1){
+            if (myPostFragment==null)
+                myPostFragment=new MyPostFragment();
+            return myPostFragment;
+        }
+        return null;
     }
 
     @Nullable

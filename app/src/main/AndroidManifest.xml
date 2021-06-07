@@ -16,7 +16,6 @@
             android:name=".MyUI.OwnerMainActivity"
             android:label="@string/title_activity_owner_main"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MyUI.MainActivity" />
         <activity android:name=".MyUI.SignIn">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
