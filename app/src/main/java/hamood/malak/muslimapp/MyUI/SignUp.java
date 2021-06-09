@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -18,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import hamood.malak.muslimapp.MyUtils.MyValidations;
 import hamood.malak.muslimapp.R;
 
-public class SignUp extends MainActivity {
+public class SignUp extends AppCompatActivity {
     //1 XML design
     //2
     private EditText editTextTextEmailAddress,text,editPhone;
@@ -123,8 +124,7 @@ public class SignUp extends MainActivity {
                     //next screen or close this screen
                     finish();// close this screen
                     //next screen
-                    Intent i=new Intent(getBaseContext(),MainActivity.class);
-                    startActivity(i);
+
                 }
                 else{
                     Toast.makeText(SignUp.this,"Signing up, Failed: "+task.getException().getMessage(),Toast.LENGTH_SHORT).show();

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import hamood.malak.muslimapp.R;
 
@@ -63,8 +64,9 @@ public class AllPostsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_all_posts, container, false);
-        Button btn = view.findViewById(R.id.button);
         View editText= view.findViewById(R.id.editTextTextPersonName);
+        ImageButton imageButton2=view.findViewById(R.id.imageButton2);
+        ImageButton imageButton3=view.findViewById(R.id.imageButton3);
 
         return view;
     }

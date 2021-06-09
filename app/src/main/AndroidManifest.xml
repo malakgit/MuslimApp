@@ -24,7 +24,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".MyUI.AddPost" />
-        <activity android:name=".MyUI.SignUp" />
+        <activity android:name=".MyUI.SignUp"></activity>
+
+
     </application>
 
 </manifest>

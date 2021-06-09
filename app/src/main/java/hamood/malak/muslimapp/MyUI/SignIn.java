@@ -26,10 +26,17 @@ public class SignIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_in); //3
 
+        FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
+        if (firebaseAuth.getCurrentUser()!=null)
+        {
+            Intent i=new Intent(SignIn.this,OwnerMainActivity.class);
+            startActivity(i);
+        }
         Email=findViewById(R.id.email);
         Password=findViewById(R.id.password);
         logIn=findViewById(R.id.logIn);
         signUP=findViewById(R.id.signUP);
+
 
         logIn.setOnClickListener(new View.OnClickListener() {
             @Override
