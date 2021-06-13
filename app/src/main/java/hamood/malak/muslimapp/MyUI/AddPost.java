@@ -15,7 +15,16 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Date;
 
 import hamood.malak.muslimapp.MyUtils.MyPost;
 import hamood.malak.muslimapp.MyUtils.MyValidations;
@@ -30,7 +39,7 @@ public class AddPost extends AppCompatActivity {
     private TextView code;
     private Button chooseimage_btn;
     private TextView PostTitle,TextMore;
-
+    private Object Date;
 
 
     @SuppressLint("WrongViewCast")
@@ -103,6 +112,11 @@ public class AddPost extends AppCompatActivity {
     {
         String Forwhatthispost= PostTitle.getText().toString();
         String textmoe= TextMore.getText().toString();
+        String loc=location.getText().toString();
+
+        
+
+                
 
 
         boolean isOk=false;
@@ -113,13 +127,15 @@ public class AddPost extends AppCompatActivity {
         if (isOk){
             MyPost myPost=new MyPost();
             myPost.setTitle(Forwhatthispost);
-            myPost.setTextmore();
-            createTask(t);
-//            MyTask task=new MyTask();
-//            task.setCreatedAt(new Date());
-//            //task.setDueDate(new Date(date));
-//            task.setText(text);
-//            task.setTitle(title);
+            myPost.setTextmore(textmoe);
+            myPost.setDatepost(new Date());
+            createPost(myPost);
+
+//            MyPost post=new MyPost();
+//            post.setCreatedAt(new Date());
+//            //post.setDueDate(new Date(date));
+//            post.setText(text);
+//            post.setTitle(title);
 //            task.setImportant(important);
 //            task.setNecessary(necessary);
 //
@@ -188,6 +204,37 @@ public class AddPost extends AppCompatActivity {
 
 
     }
+    private void createPost(final MyPost post){
+        //1.
+        FirebaseDatabase database= FirebaseDatabase.getInstance();
+        //2.
+        DatabaseReference reference =
+                database.getReference();
+        //to get the user uid (or other details like email)
+        FirebaseAuth auth=FirebaseAuth.getInstance();
+        String uid = auth.getCurrentUser().getUid();
+        post.setEmployee(uid);
+
+        String key = reference.child("tasks").push().getKey();
+        post.setKey(key);
+        reference.child("tasks").child(uid).child(key).setValue(post).addOnCompleteListener(AddPost.this, new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful())
+                {
+                    Toast.makeText(getApplicationContext(), "add successful", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), "add failed"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    task.getException().printStackTrace();
+                }
+
+            }
+        });
+    }
+
 
 
 
