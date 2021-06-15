@@ -119,7 +119,7 @@ public class AddPost extends AppCompatActivity {
                 
 
 
-        boolean isOk=false;
+        boolean isOk=true;
         if (Forwhatthispost.length()==0){
             isOk=false;
             PostTitle.setError("at least one sentence");
@@ -215,9 +215,9 @@ public class AddPost extends AppCompatActivity {
         String uid = auth.getCurrentUser().getUid();
         post.setEmployee(uid);
 
-        String key = reference.child("tasks").push().getKey();
+        String key = reference.child("posts").push().getKey();
         post.setKey(key);
-        reference.child("tasks").child(uid).child(key).setValue(post).addOnCompleteListener(AddPost.this, new OnCompleteListener<Void>() {
+        reference.child("posts").child(uid).child(key).setValue(post).addOnCompleteListener(AddPost.this, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful())

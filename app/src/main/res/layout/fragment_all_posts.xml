@@ -12,25 +12,32 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/editTextTextPersonName"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="search"
-            android:inputType="textPersonName" />
+            android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="440dp"
-            android:layout_height="wrap_content"
-            tools:src="@tools:sample/avatars" />
+            <ImageButton
+                android:id="@+id/imSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_menu_search" />
 
-        <ImageButton
-            android:id="@+id/imageButton3"
-            android:layout_width="446dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher_foreground" />
+            <EditText
+                android:id="@+id/etTitleTosearch"
+                android:layout_width="545dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="search"
+                android:inputType="textPersonName" />
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/lstv"
+            android:layout_width="match_parent"
+            android:layout_height="1073dp">
+
+        </ListView>
 
     </LinearLayout>
 

@@ -2,12 +2,26 @@ package hamood.malak.muslimapp.MyUI.ui.main;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ListView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import hamood.malak.muslimapp.MyUI.PostAdapter;
+import hamood.malak.muslimapp.MyUtils.MyPost;
 import hamood.malak.muslimapp.R;
 
 /**
@@ -17,6 +31,9 @@ import hamood.malak.muslimapp.R;
  */
 public class MyPostFragment extends Fragment {
 
+    private PostAdapter postAdapter;
+    private ListView lstv;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -25,6 +42,9 @@ public class MyPostFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private ImageView imSearch;
+    private EditText etTitleTosearch;
+
 
     public MyPostFragment() {
         // Required empty public constructor
@@ -60,7 +80,66 @@ public class MyPostFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        postAdapter=new PostAdapter(getContext(),R.layout.item_post);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_my_post, container, false);
+        View view = inflater.inflate(R.layout.fragment_all_posts, container, false);
+        View etTitleTosearch= view.findViewById(R.id.etTitleTosearch);
+        lstv=view.findViewById(R.id.lstv);
+        lstv.setAdapter(postAdapter);
+        //2 search:
+        imSearch=view.findViewById(R.id.imSearch);
+        etTitleTosearch=view.findViewById(R.id.etTitleTosearch);
+        //3 search event:
+        imSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        return view;
+
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+        //6 search: delete method calling
+        readpostsFromFirebase("");
+    }
+    //4 search: add parameter toi search
+    public void readpostsFromFirebase(final String stTosearch)
+    {
+        FirebaseDatabase database=FirebaseDatabase.getInstance();//to connect to database
+        FirebaseAuth auth=FirebaseAuth.getInstance();//to get current UID
+        String uid = auth.getUid();
+        DatabaseReference reference = database.getReference();
+        //orderByChild("title").equalTo(stTosearch)// 5+6
+        reference.child("posts").child(uid).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+            {
+                postAdapter.clear();
+                for (DataSnapshot d : dataSnapshot.getChildren())
+                {
+                    MyPost t=d.getValue(MyPost.class);
+                    Log.d("MYTASK",t.toString());
+                    //5 search:
+                    if(stTosearch==null || stTosearch.length()==0)
+                    {
+                        postAdapter.add(t);
+                    }
+                    else //6 search:
+                        if(t.getTitle().contains(stTosearch))
+                            postAdapter.add(t);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
+
 }

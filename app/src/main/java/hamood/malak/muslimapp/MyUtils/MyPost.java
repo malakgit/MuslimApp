@@ -7,9 +7,10 @@ public class MyPost
 {
     private String Title;
     private String textmore;
-    private int howmuchlike;
     private  Date datepost;
+    private String location;
     private String employee;
+    private int code;
     private String key;// key: unique id for each object. have to be....
 
     private Hashtable<String ,String> hashtable; //comments
@@ -21,21 +22,38 @@ public class MyPost
     public MyPost(String title, String textmore, int howmuchlike, Date datepost, Hashtable<String, String> hashtable) {
         Title = title;
         this.textmore = textmore;
-        this.howmuchlike = howmuchlike;
         this.datepost = datepost;
+        this.location=location;
         this.hashtable = hashtable;
         this.employee=employee;
         this.key=key;
+        this.code=code;
     }
 
     public String getTitle() {
         return Title;
     }
 
+
     public void setTitle(String title) {
         Title = title;
     }
 
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
 
     public String getEmployee() {
         return employee;
@@ -61,13 +79,6 @@ public class MyPost
         this.textmore = textmore;
     }
 
-    public int getHowmuchlike() {
-        return howmuchlike;
-    }
-
-    public void setHowmuchlike(int howmuchlike) {
-        this.howmuchlike = howmuchlike;
-    }
 
     public Date getDatepost() {
         return datepost;
@@ -90,9 +101,10 @@ public class MyPost
         return "MyPost{" +
                 "Title='" + Title + '\'' +
                 ", textmore='" + textmore + '\'' +
-                ", howmuchlike=" + howmuchlike +
                 ", datepost=" + datepost +
+                ", location='" + location + '\'' +
                 ", employee='" + employee + '\'' +
+                ", code=" + code +
                 ", key='" + key + '\'' +
                 ", hashtable=" + hashtable +
                 '}';
