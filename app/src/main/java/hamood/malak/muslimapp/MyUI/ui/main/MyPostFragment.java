@@ -83,16 +83,19 @@ public class MyPostFragment extends Fragment {
         postAdapter=new PostAdapter(getContext(),R.layout.item_post);
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_all_posts, container, false);
-        View etTitleTosearch= view.findViewById(R.id.etTitleTosearch);
+        EditText etTitleTosearch= view.findViewById(R.id.etTitleTosearch);
         lstv=view.findViewById(R.id.lstv);
         lstv.setAdapter(postAdapter);
         //2 search:
         imSearch=view.findViewById(R.id.imSearch);
         etTitleTosearch=view.findViewById(R.id.etTitleTosearch);
-        //3 search event:
+        //3 search event:\
+        final EditText finalEtTitleTosearch = etTitleTosearch;
+
         imSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                readpostsFromFirebase(finalEtTitleTosearch.getText().toString());
 
             }
         });
