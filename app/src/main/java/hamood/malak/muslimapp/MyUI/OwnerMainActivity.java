@@ -10,7 +10,10 @@ import com.google.android.material.tabs.TabLayout;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import hamood.malak.muslimapp.MyUI.ui.main.SectionsPagerAdapter;
 import hamood.malak.muslimapp.R;
@@ -36,8 +39,57 @@ public class OwnerMainActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(),AddPost.class));
             }
         });
-
-
+    }
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.activity_main_menu, menu);
+        return true;
     }
 
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId()) {
+            case R.id.message:
+                Toast
+                        .makeText(
+                                getApplicationContext(),
+                                "Shows share icon",
+                                Toast.LENGTH_SHORT)
+                        .show();
+                return true;
+
+            case R.id.picture:
+                Toast
+                        .makeText(
+                                getApplicationContext(),
+                                "Shows image icon",
+                                Toast.LENGTH_SHORT)
+                        .show();
+
+                return (true);
+
+            case R.id.mode:
+                Toast
+                        .makeText(
+                                getApplicationContext(),
+                                "Shows call icon",
+                                Toast.LENGTH_SHORT)
+                        .show();
+                return (true);
+
+            case R.id.about:
+                Toast
+                        .makeText(
+                                getApplicationContext(),
+                                "calculator menu",
+                                Toast.LENGTH_SHORT)
+                        .show();
+                return (true);
+
+            case R.id.exit:
+                finish();
+                return (true);
+        }
+        return (super.onOptionsItemSelected(item));
+    }
 }

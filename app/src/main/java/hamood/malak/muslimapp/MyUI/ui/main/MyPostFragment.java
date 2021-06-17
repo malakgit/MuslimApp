@@ -116,7 +116,7 @@ public class MyPostFragment extends Fragment {
         String uid = auth.getUid();
         DatabaseReference reference = database.getReference();
         //orderByChild("title").equalTo(stTosearch)// 5+6
-        reference.child("posts").child(uid).addValueEventListener(new ValueEventListener() {
+        reference.child("posts").orderByChild("employee").equalTo(uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {

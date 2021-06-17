@@ -49,13 +49,6 @@ public class PostAdapter extends ArrayAdapter<MyPost>
         titleitem.setText(myPost.getTitle());
         itemdate.setText(myPost.getDatepost().toGMTString());
        // imageviewitem.setImageIcon(myPost.get);
-
-
         return vitem;
-
-
-
-
-
     }
 }
