@@ -9,31 +9,29 @@
         android:id="@+id/itemdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="112dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/titleitem"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="243dp"
+        tools:layout_editor_absoluteY="7dp" />
 
     <ImageView
         android:id="@+id/imageviewitem"
         android:layout_width="93dp"
         android:layout_height="31dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/titleitem"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/titleitem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="93dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/imageviewitem"
-        app:layout_constraintEnd_toStartOf="@+id/itemdate"
-        app:layout_constraintStart_toEndOf="@+id/imageviewitem" />
+        tools:layout_editor_absoluteX="92dp"
+        tools:layout_editor_absoluteY="11dp" />
+
+    <ImageButton
+        android:id="@+id/mapbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_dialog_map"
+        tools:layout_editor_absoluteX="347dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

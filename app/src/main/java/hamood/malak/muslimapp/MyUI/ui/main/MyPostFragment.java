@@ -143,6 +143,4 @@ public class MyPostFragment extends Fragment {
         });
 
     }
-
-
 }

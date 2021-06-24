@@ -1,5 +1,7 @@
 package hamood.malak.muslimapp.MyUI.ui.main;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -95,7 +97,12 @@ public class AllPostsFragment extends Fragment {
         imSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                readpostsFromFirebase(finalEtTitleTosearch.getText().toString());
+               readpostsFromFirebase(finalEtTitleTosearch.getText().toString());
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("http://maps.google.co.in/maps?q=" + "haifa"));
+               // if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+               // }
             }
         });
         return view;

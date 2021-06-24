@@ -12,6 +12,8 @@ public class MyPost
     private String employee;
     private int code;
     private String key;// key: unique id for each object. have to be....
+    private String image;
+
 
     private Hashtable<String ,String> hashtable; //comments
 
@@ -28,6 +30,7 @@ public class MyPost
         this.employee=employee;
         this.key=key;
         this.code=code;
+        this.image=image;
     }
 
     public String getTitle() {
@@ -96,6 +99,14 @@ public class MyPost
         this.hashtable = hashtable;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     @Override
     public String toString() {
         return "MyPost{" +
@@ -106,6 +117,7 @@ public class MyPost
                 ", employee='" + employee + '\'' +
                 ", code=" + code +
                 ", key='" + key + '\'' +
+                ", image='" + image + '\'' +
                 ", hashtable=" + hashtable +
                 '}';
     }

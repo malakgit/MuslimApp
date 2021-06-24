@@ -19,6 +19,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     AllPostsFragment allPostsFragment;
     MyPostFragment myPostFragment;
+    MapsFragment myFragment;
 
     @StringRes
     private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2};
@@ -36,10 +37,15 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 allPostsFragment=new AllPostsFragment();
             return allPostsFragment;
         }
+//        if (position==1){
+//            if (myPostFragment==null)
+//                myPostFragment=new MyPostFragment();
+//            return myPostFragment;
+//        }
         if (position==1){
-            if (myPostFragment==null)
-                myPostFragment=new MyPostFragment();
-            return myPostFragment;
+            if (myFragment==null)
+                myFragment=new MapsFragment();
+            return myFragment;
         }
         return null;
     }
