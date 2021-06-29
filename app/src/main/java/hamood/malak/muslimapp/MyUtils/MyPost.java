@@ -32,6 +32,7 @@ public class MyPost
         this.code=code;
         this.image=image;
     }
+    // Getters & Setters
 
     public String getTitle() {
         return Title;

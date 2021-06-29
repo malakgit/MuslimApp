@@ -5,6 +5,8 @@
     android:id="@+id/choose_image_btn"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/coolback"
+
     >
 
     <LinearLayout
@@ -14,69 +16,88 @@
         tools:layout_editor_absoluteX="278dp"
         tools:layout_editor_absoluteY="200dp">
 
-        <androidx.core.widget.NestedScrollView
+        <TextView
+            android:id="@+id/addpostTextview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#FFFFFF"
-            android:fillViewport="true">
+            android:layout_height="wrap_content"
+            android:text="ADD POST.."
+            android:textSize="36sp"
+            android:textStyle="bold|italic" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+        <EditText
+            android:id="@+id/PostTitle"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@null"
+            android:ems="10"
+            android:hint="What is this post?"
+            android:inputType="textPersonName"
 
-                <EditText
-                    android:id="@+id/PostTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="62dp"
-                    android:ems="10"
-                    android:hint="What is this post?"
-                    android:inputType="textPersonName" />
 
-                <EditText
-                    android:id="@+id/TextMore"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Tell us more about this post!"
-                    android:inputType="textPersonName" />
+            android:singleLine="true" />
 
-                <EditText
-                    android:id="@+id/location"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="enter the location"
-                    android:inputType="textPersonName" />
+        <EditText
+            android:id="@+id/TextMore"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@null"
+            android:ems="10"
+            android:hint="Tell us more about this post!"
 
-                <EditText
-                    android:id="@+id/code"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="enter the code"
-                    android:inputType="number" />
+            android:inputType="textPersonName"
+            android:singleLine="true" />
 
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="match_parent"
-                    android:layout_height="74dp"
-                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+        <EditText
+            android:id="@+id/location"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:background="@null"
+            android:ems="10"
+            android:hint="Enter the location"
 
-                <Button
-                    android:id="@+id/chooseimage_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="choose image" />
+            android:inputType="textPersonName"
+            android:singleLine="true" />
 
-                <Button
-                    android:id="@+id/Post"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="POST" />
+        <EditText
+            android:id="@+id/code"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@null"
+            android:ems="10"
+            android:hint="Enter the code"
 
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
+            android:inputType="number"
+            android:singleLine="true" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="135dp"
+            android:background="@null"
+
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+        <Button
+            android:id="@+id/chooseimage_btn"
+            style="@style/Widget.AppCompat.Button.Small"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+
+
+            android:background="@null"
+            android:backgroundTint="#F44336"
+            android:text="choose image" />
+
+        <Button
+            android:id="@+id/Post"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+
+            android:background="@null"
+            android:backgroundTint="#F44336"
+            android:lineSpacingExtra="12sp"
+            android:text="POST" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
