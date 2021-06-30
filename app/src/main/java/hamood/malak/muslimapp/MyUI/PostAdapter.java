@@ -83,6 +83,11 @@ public class PostAdapter extends ArrayAdapter<MyPost>
         //getting data source
 
         final MyPost myPost = getItem(position);
+        titleitem.setText(myPost.getTitle());
+
+        itemdate.setText(myPost.getDatepost()+"");
+       /// imageviewitem.setImageIcon(myPost.getImage());
+
         mapbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,6 +98,7 @@ public class PostAdapter extends ArrayAdapter<MyPost>
                 // }
             }
         });
+        if (myPost.getImage()!=null && myPost.getImage().length()>0)
         downloadImageUsingPicasso(myPost.getImage(),imageviewitem);
         //downloadImageToMemory(myTask.getImage(),imageView);
         //downloadImageToLocalFile(myPost.getImage(),);
@@ -107,7 +113,7 @@ public class PostAdapter extends ArrayAdapter<MyPost>
 
     private void downloadImageUsingPicasso(String imageUrL, ImageView toView)
     {
-        Picasso.with(getContext())
+          Picasso.with(getContext())
                 .load(imageUrL)
                 .centerCrop()
                 .error(R.drawable.common_full_open_on_phone)

@@ -45,7 +45,7 @@ public class AddPost extends AppCompatActivity {
     private static final int IMAGE_PICK_CODE =1000 ;
     private static final int PERMISSION_CODE =1001;
     private Button Post;
-    private ImageView imageView;
+    private ImageButton imageView;
     private EditText location;
     private TextView code;
     private Button chooseimage_btn;
@@ -70,13 +70,14 @@ public class AddPost extends AppCompatActivity {
         PostTitle=findViewById(R.id.PostTitle);
         TextMore=findViewById(R.id.TextMore);
         Post=findViewById(R.id.Post);
+        //upload: 3
         imageView=findViewById(R.id.imageView);
         chooseimage_btn=findViewById(R.id.chooseimage_btn);
+
         chooseimage_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
+                Toast.makeText(getApplicationContext(), "image", Toast.LENGTH_SHORT).show();
                 if (Build.VERSION.SDK_INT>= Build.VERSION_CODES.M){
                     if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_DENIED){
                         // permission not5 granted, request it.
@@ -99,7 +100,7 @@ public class AddPost extends AppCompatActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dataHandler();
+
                 if (Build.VERSION.SDK_INT>= Build.VERSION_CODES.M){
                     if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_DENIED){
                         // permission not5 granted, request it.
@@ -134,13 +135,6 @@ public class AddPost extends AppCompatActivity {
         String Forwhatthispost= PostTitle.getText().toString();
         String textmoe= TextMore.getText().toString();
         String loc=this.location.getText().toString();
-
-
-        
-
-                
-
-
         boolean isOk=true;
         if (Forwhatthispost.length()==0){
             isOk=false;
@@ -153,8 +147,8 @@ public class AddPost extends AppCompatActivity {
             myPost.setDatepost(new Date());
            // myPost.setLocation(new location);
             myPost.setLocation(loc);
-            createPost(myPost);
-
+            //createPost(myPost);
+          uploadImage(toUploadimageUri);
 //            MyPost post=new MyPost();
 //            post.setCreatedAt(new Date());
 //            //post.setDueDate(new Date(date));
@@ -213,8 +207,8 @@ public class AddPost extends AppCompatActivity {
                             ref.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Uri> task) {
-                                    downladuri = task.getResult();
-                                    p.setImage(downladuri.toString());
+                                    toUploadimageUri = task.getResult();
+                                    p.setImage(toUploadimageUri.toString());
                                     createPost(p);
 
                                 }
@@ -251,17 +245,17 @@ public class AddPost extends AppCompatActivity {
         startActivityForResult(intent,IMAGE_PICK_CODE);
     }
 
-
-    public void onRequestPermissionsResult (int requestCode, String[] permissions,int[] grantResults){
-        switch (requestCode){
-            case PERMISSION_CODE:{
-                if (grantResults.length>0 && grantResults[0]== PackageManager.PERMISSION_GRANTED){
+    @Override
+    public void onRequestPermissionsResult (int requestCode, @NonNull String[] permissions,@NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case PERMISSION_CODE: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     //permission was denied
                     pickImageFromGallery();
-                }
-                else{
+                } else {
                     // permission was denied
-                    Toast.makeText(this,"Permission denied...!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Permission denied...!", Toast.LENGTH_SHORT).show();
 
                 }
             }
@@ -271,6 +265,7 @@ public class AddPost extends AppCompatActivity {
         super.onActivityResult(requestCode,resultCode,data);
         if(resultCode== RESULT_OK&& requestCode==IMAGE_PICK_CODE){
             //set image to image view
+            toUploadimageUri = data.getData();
             imageView.setImageURI(data.getData());
         }
     }
@@ -301,7 +296,6 @@ public class AddPost extends AppCompatActivity {
             p=new MyPost();
             p.setTitle(title);
 
-            //createTask(t);
             if(uploadTask!=null || (uploadTask!=null && uploadTask.isInProgress()))
             {
                 Toast.makeText(this, " uploadTask.isInProgress(", Toast.LENGTH_SHORT).show();
