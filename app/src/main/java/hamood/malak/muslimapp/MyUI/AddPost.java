@@ -56,8 +56,7 @@ public class AddPost extends AppCompatActivity {
     private MyPost p;
     private Uri downladuri;
     private Uri toUploadimageUri;
-
-
+    private MyPost myPost;
 
 
     @SuppressLint("WrongViewCast")
@@ -123,7 +122,7 @@ public class AddPost extends AppCompatActivity {
 
 
         //listeners
-                Post.setOnClickListener(new View.OnClickListener() {
+        Post.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
            validationForm();
@@ -141,7 +140,7 @@ public class AddPost extends AppCompatActivity {
             PostTitle.setError("at least one sentence");
         }
         if (isOk){
-            MyPost myPost=new MyPost();
+            myPost=new MyPost();
             myPost.setTitle(Forwhatthispost);
             myPost.setTextmore(textmoe);
             myPost.setDatepost(new Date());
@@ -149,42 +148,7 @@ public class AddPost extends AppCompatActivity {
             myPost.setLocation(loc);
             //createPost(myPost);
           uploadImage(toUploadimageUri);
-//            MyPost post=new MyPost();
-//            post.setCreatedAt(new Date());
-//            //post.setDueDate(new Date(date));
-//            post.setText(text);
-//            post.setTitle(title);
-//            task.setImportant(important);
-//            task.setNecessary(necessary);
-//
-//            //get user email to set is as the owner of this task
-//            FirebaseAuth auth = FirebaseAuth.getInstance();
-//            task.setOwner(auth.getCurrentUser().getEmail());
-//// to get the database root reference
-//            DatabaseReference reference= FirebaseDatabase.getInstance().getReference();
-//
-//           //to get uid(universal id)
-//            String key=reference.child("MyTasks").push().getKey();
-//            task.setKey(key);
-//
-//            reference.child("MyTasks").child(key).setValue(task).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                @Override
-//                public void onComplete(@NonNull Task<Void> task) {
-//                    if(task.isSuccessful())
-//                    {
-//                        Toast.makeText(AddTaskActivity.this, "Add Successful", Toast.LENGTH_LONG).show();
-//                        Intent intent=new Intent(getBaseContext(),AddTaskActivity.class);
-//                        startActivity(intent);
-//                    }
-//                    else
-//                    {
-//                        Toast.makeText(AddTaskActivity.this, "Add Faild", Toast.LENGTH_LONG).show();
-//
-//                    }
-//                }
-//            });
-//
-//
+
         }
     }
     //upload: 5
@@ -207,9 +171,9 @@ public class AddPost extends AppCompatActivity {
                             ref.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Uri> task) {
-                                    toUploadimageUri = task.getResult();
-                                    p.setImage(toUploadimageUri.toString());
-                                    createPost(p);
+                                    downladuri = task.getResult();
+                                    myPost.setImage(downladuri.toString());
+                                    createPost(myPost);
 
                                 }
                             });
@@ -273,77 +237,6 @@ public class AddPost extends AppCompatActivity {
 
 
 
-    private void dataHandler() {
-        boolean isok=true;
-        String title=PostTitle.getText().toString();
-//        String text=etText.getText().toString();
-//        String  date=etDueDate.getText().toString();
-//        int necessary=skbrNecessary.getProgress();
-        if(title.length()==0)
-        {
-            PostTitle.setError("Title can not be empty");
-            isok=false;
-
-        }
-//        if(text.length()==0)
-//        {
-//            etText.setError("Text can not be empty");
-//            isok=false;
-//
-//        }
-        if(isok)
-        {
-            p=new MyPost();
-            p.setTitle(title);
-
-            if(uploadTask!=null || (uploadTask!=null && uploadTask.isInProgress()))
-            {
-                Toast.makeText(this, " uploadTask.isInProgress(", Toast.LENGTH_SHORT).show();
-            }
-            else
-                uploadImage(toUploadimageUri);
-//            MyTask task=new MyTask();
-//            task.setCreatedAt(new Date());
-//            //task.setDueDate(new Date(date));
-//            task.setText(text);
-//            task.setTitle(title);
-//            task.setImportant(important);
-//            task.setNecessary(necessary);
-//
-//            //get user email to set is as the owner of this task
-//            FirebaseAuth auth = FirebaseAuth.getInstance();
-//            task.setOwner(auth.getCurrentUser().getEmail());
-//// to get the database root reference
-//            DatabaseReference reference= FirebaseDatabase.getInstance().getReference();
-//
-//           //to get uid(universal id)
-//            String key=reference.child("MyTasks").push().getKey();
-//            task.setKey(key);
-//
-//            reference.child("MyTasks").child(key).setValue(task).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                @Override
-//                public void onComplete(@NonNull Task<Void> task) {
-//                    if(task.isSuccessful())
-//                    {
-//                        Toast.makeText(AddTaskActivity.this, "Add Successful", Toast.LENGTH_LONG).show();
-//                        Intent intent=new Intent(getBaseContext(),AddTaskActivity.class);
-//                        startActivity(intent);
-//                    }
-//                    else
-//                    {
-//                        Toast.makeText(AddTaskActivity.this, "Add Faild", Toast.LENGTH_LONG).show();
-//
-//                    }
-//                }
-//            });
-//
-//
-
-
-        }
-
-
-    }
 
 
 

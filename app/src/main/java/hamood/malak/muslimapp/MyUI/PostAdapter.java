@@ -86,7 +86,12 @@ public class PostAdapter extends ArrayAdapter<MyPost>
         titleitem.setText(myPost.getTitle());
 
         itemdate.setText(myPost.getDatepost()+"");
-       /// imageviewitem.setImageIcon(myPost.getImage());
+        //downloadImageUsingPicasso(myPost.getImage(),imageviewitem);
+
+        /// imageviewitem.setImageIcon(myPost.getImage());
+
+
+
 
         mapbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,7 +104,7 @@ public class PostAdapter extends ArrayAdapter<MyPost>
             }
         });
         if (myPost.getImage()!=null && myPost.getImage().length()>0)
-        downloadImageUsingPicasso(myPost.getImage(),imageviewitem);
+            downloadImageUsingPicasso(myPost.getImage(),imageviewitem);
         //downloadImageToMemory(myTask.getImage(),imageView);
         //downloadImageToLocalFile(myPost.getImage(),);
         //todo טיפול באירוע מחיקה

@@ -37,16 +37,16 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 allPostsFragment=new AllPostsFragment();
             return allPostsFragment;
         }
-//        if (position==1){
-//            if (myPostFragment==null)
-//                myPostFragment=new MyPostFragment();
-//            return myPostFragment;
-//        }
         if (position==1){
-            if (myFragment==null)
-                myFragment=new MapsFragment();
-            return myFragment;
+            if (myPostFragment==null)
+                myPostFragment=new MyPostFragment();
+            return myPostFragment;
         }
+//        if (position==1){
+//            if (myFragment==null)
+//                myFragment=new MapsFragment();
+//            return myFragment;
+//        }
         return null;
     }
 

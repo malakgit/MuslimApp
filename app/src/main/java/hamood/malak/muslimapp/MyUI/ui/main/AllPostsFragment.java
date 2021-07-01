@@ -98,11 +98,7 @@ public class AllPostsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                readpostsFromFirebase(finalEtTitleTosearch.getText().toString());
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("http://maps.google.co.in/maps?q=" + "haifa"));
-               // if (intent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(intent);
-               // }
+
             }
         });
         return view;

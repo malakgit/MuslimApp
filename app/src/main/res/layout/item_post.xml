@@ -11,20 +11,18 @@
         android:id="@+id/itemdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="46dp"
+        android:layout_marginStart="12dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/mapbtn"
-        app:layout_constraintStart_toEndOf="@+id/imageviewitem"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/imageviewitem" />
 
     <ImageView
         android:id="@+id/imageviewitem"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="141dp"
+        android:layout_marginEnd="245dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/itemdate"
+        app:layout_constraintEnd_toStartOf="@+id/mapbtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
@@ -33,21 +31,20 @@
         android:id="@+id/titleitem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="92dp"
-        android:layout_marginEnd="93dp"
+        android:layout_marginStart="12dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/itemdate"
-        app:layout_constraintStart_toStartOf="@+id/imageviewitem"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/itemdate"
+        app:layout_constraintStart_toEndOf="@+id/imageviewitem"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/mapbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="7dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/itemdate"
+        app:layout_constraintStart_toEndOf="@+id/imageviewitem"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_dialog_map" />
 
