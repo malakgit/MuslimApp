@@ -69,7 +69,7 @@ public class PostAdapter extends ArrayAdapter<MyPost>
 //       // imageviewitem.setImageIcon(myPost.get);
 //        return vitem;
 //    }
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) { //
 
         //building item view
         View vitem= LayoutInflater.from(getContext()).inflate(R.layout.item_post,parent,false);
@@ -104,10 +104,11 @@ public class PostAdapter extends ArrayAdapter<MyPost>
             }
         });
         if (myPost.getImage()!=null && myPost.getImage().length()>0)
-            downloadImageUsingPicasso(myPost.getImage(),imageviewitem);
+
         //downloadImageToMemory(myTask.getImage(),imageView);
         //downloadImageToLocalFile(myPost.getImage(),);
         //todo טיפול באירוע מחיקה
+            downloadImageUsingPicasso(myPost.getImage(),imageviewitem);
 
 
 

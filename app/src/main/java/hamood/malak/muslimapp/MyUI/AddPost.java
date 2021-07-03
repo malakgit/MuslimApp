@@ -82,7 +82,7 @@ public class AddPost extends AppCompatActivity {
                         // permission not5 granted, request it.
                         String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE};
                         //show popup for runtime permission
-                        requestPermissions(permissions,PERMISSION_CODE);
+                        requestPermissions(permissions,PERMISSION_CODE); //the window request(allow or no)
                     }
                     else{
                         //permission already granted
@@ -206,7 +206,7 @@ public class AddPost extends AppCompatActivity {
         //intent to pick image
         Intent intent=new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
-        startActivityForResult(intent,IMAGE_PICK_CODE);
+        startActivityForResult(intent,IMAGE_PICK_CODE); //request code (image)
     }
 
     @Override
@@ -233,13 +233,6 @@ public class AddPost extends AppCompatActivity {
             imageView.setImageURI(data.getData());
         }
     }
-
-
-
-
-
-
-
 
     private void createPost(final MyPost post){
         //1.

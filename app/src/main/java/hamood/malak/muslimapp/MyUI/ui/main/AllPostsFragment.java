@@ -108,6 +108,7 @@ public class AllPostsFragment extends Fragment {
     public void onResume() {
         super.onResume();
         //6 search: delete method calling
+
         readpostsFromFirebase("");
     }
     //4 search: add parameter toi search

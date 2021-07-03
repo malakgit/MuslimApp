@@ -14,7 +14,6 @@ public class MyPost
     private String key;// key: unique id for each object. have to be....
     private String image;
 
-
     private Hashtable<String ,String> hashtable; //comments
 
     public MyPost(){
