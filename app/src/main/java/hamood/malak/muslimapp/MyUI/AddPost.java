@@ -73,7 +73,7 @@ public class AddPost extends AppCompatActivity {
         imageView=findViewById(R.id.imageView);
         chooseimage_btn=findViewById(R.id.chooseimage_btn);
 
-        chooseimage_btn.setOnClickListener(new View.OnClickListener() {
+        chooseimage_btn.setOnClickListener(new View.OnClickListener() { //when we click on the image btn:1
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "image", Toast.LENGTH_SHORT).show();
@@ -96,7 +96,7 @@ public class AddPost extends AppCompatActivity {
                 }
             }
         });
-        imageView.setOnClickListener(new View.OnClickListener() {
+        imageView.setOnClickListener(new View.OnClickListener() { // when we click in the image view
             @Override
             public void onClick(View view) {
 
@@ -156,19 +156,20 @@ public class AddPost extends AppCompatActivity {
         //intent to pick image
         Intent intent=new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
+        //rmoz lano bdo sora (image)
         startActivityForResult(intent,IMAGE_PICK_CODE); //request code (image) (open gallery
     }
 
     @Override
     public void onRequestPermissionsResult (int requestCode, @NonNull String[] permissions,@NonNull int[] grantResults) { // if it is ok to access gallery
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);// permission from the user to access the gallery
         switch (requestCode) {
             case PERMISSION_CODE: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    //permission was denied
+                    //permission was granted/ok
                     pickImageFromGallery();
                 } else {
-                    // permission was denied
+                    // permission was denied/no
                     Toast.makeText(this, "Permission denied...!", Toast.LENGTH_SHORT).show();
 
                 }
@@ -188,9 +189,11 @@ public class AddPost extends AppCompatActivity {
 
         if(filePath != null)// if the user pick image
         {
+            // a dialog showing a progress
             final ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
+            //moving to firebase storage
             FirebaseStorage storage= FirebaseStorage.getInstance();
             StorageReference storageReference = storage.getReference();
             final StorageReference ref = storageReference.child("images/"+ UUID.randomUUID().toString());
@@ -221,6 +224,7 @@ public class AddPost extends AppCompatActivity {
                         }
                     })
                     .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        //listener that is called
                         @Override
                         public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
                             double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot

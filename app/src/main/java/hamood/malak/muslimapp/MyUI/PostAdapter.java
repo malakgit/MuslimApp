@@ -89,12 +89,6 @@ public class PostAdapter extends ArrayAdapter<MyPost>
         //    }
        // });
 
-
-
-
-
-
-
             mapbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

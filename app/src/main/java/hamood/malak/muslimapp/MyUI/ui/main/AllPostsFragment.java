@@ -144,7 +144,7 @@ public class AllPostsFragment extends Fragment {
                         postAdapter.add(t);
                     }
                     else //6 search:
-                        if(t.getTitle().contains(stTosearch))//ya7toy
+                        if(t.getTitle().contains(stTosearch))//ya7toy 3la nfs el word
                             postAdapter.add(t);
                 }
             }
