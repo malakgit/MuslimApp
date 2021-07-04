@@ -129,7 +129,7 @@ public class AddPost extends AppCompatActivity {
         }
     });
 }
-    public void validationForm()
+    public void validationForm() //cheacks if the 7kol is all correct
     {
         String Forwhatthispost= PostTitle.getText().toString();
         String textmoe= TextMore.getText().toString();
@@ -151,10 +151,42 @@ public class AddPost extends AppCompatActivity {
 
         }
     }
-    //upload: 5
-    private void uploadImage(Uri filePath) {
 
-        if(filePath != null)
+    private void pickImageFromGallery(){ //request image
+        //intent to pick image
+        Intent intent=new Intent(Intent.ACTION_PICK);
+        intent.setType("image/*");
+        startActivityForResult(intent,IMAGE_PICK_CODE); //request code (image) (open gallery
+    }
+
+    @Override
+    public void onRequestPermissionsResult (int requestCode, @NonNull String[] permissions,@NonNull int[] grantResults) { // if it is ok to access gallery
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case PERMISSION_CODE: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    //permission was denied
+                    pickImageFromGallery();
+                } else {
+                    // permission was denied
+                    Toast.makeText(this, "Permission denied...!", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        }
+    }
+    protected void onActivityResult(int requestCode,int resultCode,Intent data){ //is ok+ is image
+        super.onActivityResult(requestCode,resultCode,data); // is ok or cancel
+        if(resultCode== RESULT_OK&& requestCode==IMAGE_PICK_CODE){//is that code for a pic
+            //set image to image view
+            toUploadimageUri = data.getData();// take the pic
+            imageView.setImageURI(data.getData()); //put it in the button
+        }
+    }
+    //upload: 5
+    private void uploadImage(Uri filePath) { //yarfa3 3la firebase
+
+        if(filePath != null)// if the user pick image
         {
             final ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Uploading...");
@@ -170,7 +202,7 @@ public class AddPost extends AppCompatActivity {
                             progressDialog.dismiss();
                             ref.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
                                 @Override
-                                public void onComplete(@NonNull Task<Uri> task) {
+                                public void onComplete(@NonNull Task<Uri> task) {//تشتغل حسب اللسينر
                                     downladuri = task.getResult();
                                     myPost.setImage(downladuri.toString());
                                     createPost(myPost);
@@ -200,37 +232,6 @@ public class AddPost extends AppCompatActivity {
         {
             p.setImage("");
             createPost(p);
-        }
-    }
-    private void pickImageFromGallery(){
-        //intent to pick image
-        Intent intent=new Intent(Intent.ACTION_PICK);
-        intent.setType("image/*");
-        startActivityForResult(intent,IMAGE_PICK_CODE); //request code (image)
-    }
-
-    @Override
-    public void onRequestPermissionsResult (int requestCode, @NonNull String[] permissions,@NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-            case PERMISSION_CODE: {
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    //permission was denied
-                    pickImageFromGallery();
-                } else {
-                    // permission was denied
-                    Toast.makeText(this, "Permission denied...!", Toast.LENGTH_SHORT).show();
-
-                }
-            }
-        }
-    }
-    protected void onActivityResult(int requestCode,int resultCode,Intent data){
-        super.onActivityResult(requestCode,resultCode,data);
-        if(resultCode== RESULT_OK&& requestCode==IMAGE_PICK_CODE){
-            //set image to image view
-            toUploadimageUri = data.getData();
-            imageView.setImageURI(data.getData());
         }
     }
 

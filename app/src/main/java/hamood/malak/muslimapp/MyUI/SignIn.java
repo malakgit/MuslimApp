@@ -38,13 +38,7 @@ public class SignIn extends AppCompatActivity {
         signUP=findViewById(R.id.signUP);
 
 
-        logIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                validateForm();
-
-            }
-        });
+        logIn.setOnClickListener(v -> validateForm());
         signUP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,7 +49,7 @@ public class SignIn extends AppCompatActivity {
 
     }
     //5
-    private void validateForm()
+    private void validateForm() // if everything is complete
     {
         String password=Password.getText().toString();
         String email=Email.getText().toString();
@@ -80,7 +74,7 @@ public class SignIn extends AppCompatActivity {
 
     private void signIn(String email, String password) {
         FirebaseAuth auth=FirebaseAuth.getInstance();
-        auth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        auth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() { // if this email excist in firebase
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){

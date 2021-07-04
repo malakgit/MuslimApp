@@ -11,16 +11,16 @@
         android:id="@+id/itemdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageviewitem" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageviewitem"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="245dp"
+        android:layout_marginEnd="234dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/mapbtn"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,18 +31,16 @@
         android:id="@+id/titleitem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/itemdate"
-        app:layout_constraintStart_toEndOf="@+id/imageviewitem"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/mapbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="7dp"
+        android:layout_marginEnd="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageviewitem"
         app:layout_constraintTop_toTopOf="parent"

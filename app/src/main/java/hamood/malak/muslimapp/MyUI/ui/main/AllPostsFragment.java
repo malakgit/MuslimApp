@@ -56,12 +56,13 @@ public class AllPostsFragment extends Fragment {
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
-     *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
      * @return A new instance of fragment AllPostsFragment.
      */
     // TODO: Rename and change types and number of parameters
+    //fragment הוא מסך קטן
+
     public static AllPostsFragment newInstance(String param1, String param2) {
         AllPostsFragment fragment = new AllPostsFragment();
         Bundle args = new Bundle();
@@ -80,6 +81,15 @@ public class AllPostsFragment extends Fragment {
         }
     }
 
+    /**
+     *         imSearch.setOnClickListener(new View.OnClickListener() { //click the search button
+     *         readpostsFromFirebase(finalEtTitleTosearch.getText().toString()); //if the word is excit in firebase
+     *
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -94,10 +104,10 @@ public class AllPostsFragment extends Fragment {
         etTitleTosearch=view.findViewById(R.id.etTitleTosearch);
         //3 search event:
         final EditText finalEtTitleTosearch = etTitleTosearch;
-        imSearch.setOnClickListener(new View.OnClickListener() {
+        imSearch.setOnClickListener(new View.OnClickListener() { //1
             @Override
             public void onClick(View view) {
-               readpostsFromFirebase(finalEtTitleTosearch.getText().toString());
+               readpostsFromFirebase(finalEtTitleTosearch.getText().toString()); //2
 
             }
         });
@@ -105,7 +115,7 @@ public class AllPostsFragment extends Fragment {
     }
 
     @Override
-    public void onResume() {
+    public void onResume() {//  return to the back screen
         super.onResume();
         //6 search: delete method calling
 
@@ -121,7 +131,7 @@ public class AllPostsFragment extends Fragment {
         //orderByChild("title").equalTo(stTosearch)// 5+6
         reference.child("posts").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)//list
             {
                 postAdapter.clear();
                 for (DataSnapshot d : dataSnapshot.getChildren())
@@ -134,7 +144,7 @@ public class AllPostsFragment extends Fragment {
                         postAdapter.add(t);
                     }
                     else //6 search:
-                        if(t.getTitle().contains(stTosearch))
+                        if(t.getTitle().contains(stTosearch))//ya7toy
                             postAdapter.add(t);
                 }
             }
